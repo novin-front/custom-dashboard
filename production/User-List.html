@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>User List</title>
+
+    <!-- Bootstrap -->
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../build/css/mdb.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    
+    <!-- Datatables -->
+
+
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="nav_title navbar_logo" style="border: 0;">
+                        <a href="Person-List.html" class="site_title"><img src="../build/images/logo-1.png" class="img-fluid"
+                                alt="">
+                            <span><img src="../build/images/logo-text.svg" class="img-fluid" alt=""></span></a>
+                    </div>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="nav_title navbar_logo" style="padding:8px;">
+                        <a href="Person-List.html" class="site_title icon-nav-menu">
+                            <img src="../build/images/UM-ico.svg" class="img-fluid" alt="">
+                            <span>User Management</span>
+                        </a>
+                    </div>
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a href="Person-List.html">
+                                        <i class="icomoon icon-PL-ic"></i>
+                                        <span class="text-icon">personal List</span>
+                                        <!-- <span class="fa fa-chevron-down"></span> -->
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="User-List.html">
+                                        <i class="icomoon icon-Us-ic"></i>
+                                        <span class="text-icon">User List</span>
+                                        <!-- <span class="fa fa-chevron-down"></span> -->
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a href="Role-Group-List.html">
+                                        <i class="icomoon icon-RG-ic"></i>
+                                        <span class="text-icon">
+                                            Role Role Group List
+                                        </span>
+
+                                        <!-- <span class="fa fa-chevron-down"></span> -->
+                                    </a>
+                                    <!-- <ul class="nav child_menu">
+                    <li><a href="general_elements.html">General Elements</a></li>
+                    <li><a href="media_gallery.html">Media Gallery</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                  </ul> -->
+                                </li>
+                                <li>
+                                    <a href="GroupPermission-List.html">
+                                        <i class="icomoon icon-Prm-ic"></i>
+                                        <span class="text-icon">Groupe permission List</span>
+                                        <!-- <span class="fa fa-chevron-down"></span> -->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="Permission-List.html">
+                                        <i class="icomoon icon-GPrm-ic"></i>
+                                        <span class="text-icon">Data Presentation</span>
+                                        <!-- <span class="fa fa-chevron-down"></span> -->
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /sidebar menu -->
+                    <div class="nav_title navbar_logo footer-logo" style="border: 0;">
+                        <a href="Person-List.html" class="site_title"><img src="../build/images/Exclude.png" class="img-fluid"
+                                alt="">
+                            <span><img src="../build/images/Beating-Company.png" class="img-fluid" alt=""></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="right-after-box">
+
+                    <div class="right-content-box">
+                        <nav class="navbar navbar-expand-lg shadow-none">
+                            <ul class="navbar-nav ml-3" id="header-menu">
+                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> User
+                                        Management </a>
+                                </li>
+                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> MPI
+                                    </a> </li>
+                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light">
+                                        Admission </a> </li>
+                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light">
+                                        Setting </a> </li>
+                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light">
+                                        Appointment </a> </li>
+                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light">
+                                        Prescription </a> </li>
+                            </ul>
+                            <div class="flex-fill">
+                                <div class="input-group-custom">
+                                    <input type="text" name="mainSearchBox"
+                                        placeholder="National Code | Patient Code | Mobile | Full Name" id="main-search"
+                                        class="form-control-custom p-2">
+                                    <div class="input-group-append">
+                                        <button class="search-btn-input main-btn-search" type="button">
+                                            <span class="icon-Vector" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="input-group my-0">
+                  <label class="model-lable" for="main-search" class="d-none active"> </label>
+                  <input type="text" name="mainSearchBox" placeholder="National Code | Patient Code | Mobile | Full Name"
+                   id="main-search" class="form-control-custom p-2">
+                  <div class="input-group-append">
+                    <button class="search-btn-input"> 
+                      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div> -->
+                            </div>
+                        </nav>
+                        <div class="clearfix"></div>
+
+                        <h2 class="page-title-box">
+                            <span class="page-title-text">User List</span>
+                            <hr class="page-title-hr">
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 ">
+                                <div class="data-table-panel">
+                                    <div class="datatable_title">
+                                        <div class="row">
+                                            <div class="col-12 col-md-8 col-xl-9">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <label class="model-lable" class="lable-search-dt" for="">Search
+                                                            in Persons</label>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="input-group-custom">
+                                                            <input type="text" name="mainSearchBox"
+                                                                placeholder="National Code | Patient Code | Mobile | Full Name"
+                                                                onchange="" data-toggle="main-search-result"
+                                                                id="main-search"
+                                                                class="form-control-custom data-table-search">
+                                                            <div class="input-group-append">
+                                                                <button class="search-btn-input " type="button">
+                                                                    <span class="icon-Vector" aria-hidden="true"></span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-4 col-xl-3 d-flex align-items-end ">
+                                                <button type="button" class="btn btn-round btn-custom-light m-0 w-100"
+                                                    id="add-user-personal" data-toggle="modal"
+                                                    data-target="#AddPersonal">
+                                                    <i class="icon-Vector-5"></i>
+                                                    <span class="text-btn">Add User</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card-box table-responsive">
+
+                                                    <table id="datatable-responsive" data-info="false"
+                                                        class="table dt-responsive nowrap data-table-custom"
+                                                        cellspacing="0" width="100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>User name</th>
+                                                                <th>Full Name</th>
+                                                                <th>Roll</th>
+                                                                <th>Phone Number</th>
+                                                                <th>Time To create</th>
+                                                                <th>Is Limited by IP</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Nixon</td>
+                                                                <td>System Architect</td>
+                                                                <td>Edinburgh</td>
+                                                                <td>09192018492</td>
+                                                                <td>2011/04/01</td>
+                                                                <td>192.168.0.1</td>
+                                                                <td>
+                                                                    <div class="dropdown dropdown-dt">
+                                                                        <button class="drop-down-btn" type="button"
+                                                                            id="dropdownMenuButton"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i class="fa fa-ellipsis-v"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">Action</a>
+                                                                            <a class="dropdown-item" href="#">Another
+                                                                                action</a>
+                                                                            <a class="dropdown-item" href="#">Something
+                                                                                else here</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+
+
+                                                        </tbody>
+                                                    </table>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /page content -->
+
+            <!-- footer content -->
+            <!-- <footer>
+        <div class="pull-right">
+         - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        </div>
+        <div class="clearfix"></div>
+      </footer> -->
+            <!-- /footer content -->
+        </div>
+    </div>
+
+
+    <!-- Modal add Personal User -->
+    <div class="modal fade modal-one" id="AddPersonal" tabindex="-1" role="dialog" aria-labelledby="AddPersonal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered custom-dialog" role="document">
+            <div class="modal-content custom-content">
+                <div class="modal-header-custom">
+                    <h5 class="modal-title custom-title">
+                        <i class="icomoon icon-Us-ic"></i>
+                        <span class="text-title-modal">Add personal</span>
+                        <hr class="custom-hr">
+                    </h5>
+                    <button type="button" class="close-custom" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="row my-4">
+                        <div class="col-12">
+                            <label class="model-lable" class="lable-search-dt" for="">Search in Persons</label>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-group-custom">
+                                <input type="text" name="mainSearchBox"
+                                    placeholder="National Code | Patient Code | Mobile | Full Name" onchange=""
+                                    data-toggle="main-search-result" id="main-search"
+                                    class="form-control-custom data-table-search">
+                                <div class="input-group-append">
+                                    <button class="search-btn-input " type="button">
+                                        <span class="icon-Vector" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <div class="time-line-wrapper">
+                                <h3 class="title-time-line">Basic info</h3>
+                                <p class="desc-time-line">This information basicly
+                                    needed to add new user</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label class="model-lable" for="fullname">First Name :</label>
+                                    <input type="text" id="firstName" class="form-control-modal" name="firstName"
+                                        required />
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="user-name-available">
+                                        <span class="available-user"></span>
+                                        <div class="text-user-available">This username is available</div>
+                                    </div>
+
+                                    <!-- <div class="user-name-available">
+                    <span class="not-available-user"></span>
+                    <div class="text-user-available">This username not available</div>
+                </div> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label class="model-lable" for="Password">Password :</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" id="Password" class="form-control-modal"
+                                            name="fatherName" required />
+                                        <button class="btn-show-password" data-showpass="#Password">
+                                            <span class="icon-Vector-2" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="model-lable" for="rep-Password">Password :</label>
+
+                                    <div class="password-wrapper">
+                                        <input type="password" id="rep-Password" class="form-control-modal"
+                                            name="nationalcode" required />
+                                        <button class="btn-show-password" data-showpass="#rep-Password">
+                                            <span class="icon-Vector-2" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <input class="custom-control-input" type="checkbox" value="" id="limitedIp" />
+                                    <label class="custom-control-label-edit" for="limitedIp">
+                                        Is Limited by IP
+                                    </label>
+                                    <input type="text" id="ipAddress" class="form-control-modal" name="ipAddress"
+                                        placeholder="IP Address" required />
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input type="checkbox" class="custom-control-input" id="isActive" checked>
+                                    <label class="custom-control-label-edit" for="isActive">
+                                        Is Active
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-12 col-md-3">
+                            <div class="time-line-wrapper">
+                                <h3 class="title-time-line">Select Role</h3>
+                                <p class="desc-time-line">This information basicly
+                                    needed to add new user</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label class="model-lable" for="Branch">Branch :</label>
+                                    <select id="Branch" name="Branch" class="select2_single form-control-modal pr-1"
+                                        tabindex="-1">
+                                        <option></option>
+                                        <option value="Branch-1">Branch 1</option>
+                                        <option value="Branch=2">Branch 2</option>
+                                    </select>
+                                    
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="model-lable" for="Section">Section :</label>
+                                    <select id="Section" name="Section" class="select2_single form-control-modal pr-1"
+                                        tabindex="-1">
+                                        <option></option>
+                                        <option value="Section-1">Section 1</option>
+                                        <option value="Section-1">Section 2</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label class="model-lable" for="RoleGroup">Role Group :</label>
+                                    <select id="RoleGroup" name="RoleGroup"
+                                        class="select2_single form-control-modal pr-1" tabindex="-1">
+                                        <option></option>
+                                        <option value="RoleGroup-1">Role Group 1</option>
+                                        <option value="RoleGroup-2">Role Group 2</option>
+                                    </select>
+                                    
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="model-lable" for="Role">Role :</label>
+                                    <select id="Role" name="Role" class="select2_single form-control-modal pr-1"
+                                        tabindex="-1">
+                                        <option></option>
+                                        <option value="Role-1">Role 1</option>
+                                        <option value="Role-2">Role 2</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 col-md-6"></div>
+                                <div class="col-12 col-md-6 d-flex flex-row-reverse">
+                                    <button type="button" id="add-role-option" class="btn btn-round btn-custom-blue m-2">
+                                        <span class="icon-Add-icon-1" aria-hidden="true"></span>
+                                        <span class="text-btn">add</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <hr class="per-hr">
+                                <div class="col-12 row" id="permission-groups-id">
+                                    <div class="permission-groups-wrapper">
+                                        <button type="button" class="btn-remove-permission">
+                                            ×
+                                        </button>
+                                        <div class="pre-list">
+                                            <span>Branch 1</span>
+                                            <span>Laboratory</span>
+                                            <span>Doctor</span>
+                                            <span>Resident</span>
+                                        </div>
+                                    </div>
+                                    <div class="permission-groups-wrapper active">
+                                        <button type="button" class="btn-remove-permission">
+                                            ×
+                                        </button>
+                                        <div class="pre-list">
+                                            <span>Branch 1</span>
+                                            <span>Laboratory</span>
+                                            <span>Doctor</span>
+                                            <span>Resident</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row flex-row-reverse">
+                                <div class="col-12 col-md-12 box-input-row">
+                                    <button type="button" class="btn btn-round btn-custom-light m-2" data-toggle="modal"
+                                        data-target="#modulAlert">
+                                        <span class="text-btn">save</span>
+                                    </button>
+                                    <button type="button" class="btn btn-round btn-border-blue m-2" data-toggle="modal"
+                                        data-target="#AddPermission">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        <span class="text-btn">select permission</span>
+                                    </button>
+                                    <button type="button" class="btn btn-round btn-border-m m-2" data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        <span class="text-btn">cancel</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal add permission User -->
+    <div class="modal fade modal-two" id="AddPermission" tabindex="-1" role="dialog" aria-labelledby="AddPermission"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered custom-dialog" role="document">
+            <div class="modal-content custom-content">
+                <div class="modal-header-custom">
+                    <h5 class="modal-title custom-title">
+                        <i class="icomoon icon-Us-ic"></i>
+                        <span class="text-title-modal">Select Permission (Elahe20025)</span>
+                        <hr class="custom-hr">
+                    </h5>
+                    <button type="button" class="close-custom" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                    <div class="col-12 row">
+                        <div class="permission-groups-wrapper">
+                            <button type="button" class="btn-remove-permission">
+                                ×
+                            </button>
+                            <div class="pre-list">
+                                <span>Branch 1</span>
+                                <span>Laboratory</span>
+                                <span>Doctor</span>
+                                <span>Resident</span>
+                            </div>
+                        </div>
+                        <div class="permission-groups-wrapper active">
+                            <button type="button" class="btn-remove-permission">
+                                ×
+                            </button>
+                            <div class="pre-list">
+                                <span>Branch 1</span>
+                                <span>Laboratory</span>
+                                <span>Doctor</span>
+                                <span>Resident</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="per-hr">
+
+                    <div class="row ">
+                        <div class="col-12 col-md-5">
+                            <div class="row">
+                                <div class="col-12 col-12">
+                                    <div class="input-group-custom">
+                                        <input type="text" name="mainSearchBox"
+                                            placeholder="Search in Page / Permission" onchange=""
+                                            data-toggle="main-search-result" id="main-search"
+                                            class="form-control-custom data-table-search">
+                                        <div class="input-group-append">
+                                            <button class="search-btn-input " type="button">
+                                                <span class="icon-Vector" aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row my-3">
+                                <div class="col-12 col-md-12">
+                                    <label class="model-lable" for="GroupPermissions">Group Permissions :</label>
+                                    <select id="GroupPermissions" name="Branch" class="select2_single form-control-modal pr-1"
+                                        tabindex="-1">
+                                        <option></option>
+                                        <option value="AK">select 1</option>
+                                        <option value="HI">select 2</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="permission-bace">
+                                        <ul class="permission-ul-list" id="bace-permission-list">
+                                            <li id="permission-li-1">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn" data-sublist="#user-permission-left-ul-1">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Patient 1</span>
+                                                    </div>
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-1"
+                                                            id="flexCheckDefault-1" />
+                                                        <label class="form-check-label" for="flexCheckDefault-1"></label>
+                                                    </span>
+                                                </div>
+                                                <ul id="user-permission-left-ul-1" class="permission-list" >
+                                                    <li>
+                                                        <div class="permission-list-btn">
+                                                            <div class="permission-li-btn">
+                                                                
+                                                                <span class="permission-list-text">New Patient 1 1</span>
+                                                            </div>
+                                                            
+                                                            <span>
+                                                                <input class="form-check-input input-sub-checkbox" type="checkbox" value="" data-parentid="#permission-li-1"
+                                                                    id="permission-check-1-1" />
+                                                                <label class="form-check-label" for="permission-check-1-1"></label>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="permission-list-btn">
+                                                            <div class="permission-li-btn">
+                                                                
+                                                                <span class="permission-list-text">New Patient 1 2</span>
+                                                            </div>
+                                                            
+                                                            <span>
+                                                                <input class="form-check-input input-sub-checkbox" type="checkbox" value="" data-parentid="#permission-li-1"
+                                                                    id="permission-check-1-3" />
+                                                                <label class="form-check-label" for="permission-check-1-3"></label>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="permission-list-btn">
+                                                            <div class="permission-li-btn">
+                                                               
+                                                                <span class="permission-list-text">New Patient 1 3</span>
+                                                            </div>
+                                                            
+                                                            <span>
+                                                                <input class="form-check-input input-sub-checkbox" type="checkbox" value="" data-parentid="#permission-li-1"
+                                                                    id="permission-check-1-4" />
+                                                                <label class="form-check-label" for="permission-check-1-4"></label>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li id="permission-li-2">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Patient 2</span>
+                                                    </div>
+                                                    
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-2"
+                                                            id="permission-check-2" />
+                                                        <label class="form-check-label" for="permission-check-2"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-3">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Patient 3</span>
+                                                    </div>
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-3"
+                                                            id="permission-check-3" />
+                                                        <label class="form-check-label" for="permission-check-3"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-4">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Patient 4</span>
+                                                    </div>
+                                                    
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-4"
+                                                            id="permission-check-4" />
+                                                        <label class="form-check-label" for="permission-check-4"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-5">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Patient 5</span>
+                                                    </div>
+                                                    
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-5"
+                                                            id="permission-check-5" />
+                                                        <label class="form-check-label" for="permission-check-5"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-6">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Patient 6</span>
+                                                    </div>
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-6"
+                                                            id="permission-check-6" />
+                                                        <label class="form-check-label" for="permission-check-6"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-7">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Patient 7</span>
+                                                    </div>
+                                                    
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-7"
+                                                            id="permission-check-7" />
+                                                        <label class="form-check-label" for="permission-check-7"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2 d-flex align-items-center">
+                            <div class="row ">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <button class="btn-to-list add-list">
+                                        <span class="text-btn-list">add</span>
+                                        <span class="icon-btn-list">&#62;</span>
+                                    </button>
+                                </div>
+                                <div class="col-12 d-flex justify-content-center">
+                                    <button class="btn-to-list  remove-list">
+                                        <span class="icon-btn-list">&#60;</span>
+                                        <span class="text-btn-list">remove</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-12">
+                                    <div class="input-group-custom">
+                                        <input type="text" name="mainSearchBox"
+                                            placeholder="Search in Page / Permission" onchange=""
+                                            data-toggle="main-search-result" id="main-search"
+                                            class="form-control-custom data-table-search">
+                                        <div class="input-group-append">
+                                            <button class="search-btn-input " type="button">
+                                                <span class="icon-Vector" aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <div class="permission-bace permission-user">
+                                        <ul class="permission-ul-list" id="user-permission-list">
+                                            <li id="permission-li-left-1">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn" data-sublist="#user-permission-ul-1">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Admission 1</span>
+                                                    </div>
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-left-1"
+                                                            id="permission-check-left-1" />
+                                                        <label class="form-check-label" for="permission-check-left-1"></label>
+                                                    </span>
+                                                </div>
+                                                <ul id="user-permission-ul-1" class="permission-list" >
+                                                    <li>
+                                                        <div class="permission-list-btn">
+                                                            <div class="permission-li-btn">
+                                                                
+                                                                <span class="permission-list-text">sub list 1 1</span>
+                                                            </div>
+                                                            
+                                                            <span>
+                                                                <input class="form-check-input input-sub-checkbox" type="checkbox" value="" data-parentid="#permission-li-left-1"
+                                                                    id="permission-check-left-1-1" />
+                                                                <label class="form-check-label" for="permission-check-left-1-1"></label>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="permission-list-btn">
+                                                            <div class="permission-li-btn">
+                                                                
+                                                                <span class="permission-list-text">sub list 1 2</span>
+                                                            </div>
+                                                            
+                                                            <span>
+                                                                <input class="form-check-input input-sub-checkbox" type="checkbox" value="" data-parentid="#permission-li-left-1"
+                                                                    id="permission-check-left-1-3" />
+                                                                <label class="form-check-label" for="permission-check-left-1-3"></label>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="permission-list-btn">
+                                                            <div class="permission-li-btn">
+                                                               
+                                                                <span class="permission-list-text">sub list 1 3</span>
+                                                            </div>
+                                                            
+                                                            <span>
+                                                                <input class="form-check-input input-sub-checkbox" type="checkbox" value="" data-parentid="#permission-li-left-1"
+                                                                    id="permission-check-left-1-4" />
+                                                                <label class="form-check-label" for="permission-check-left-1-4"></label>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li id="permission-li-left-2">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Admission 2</span>
+                                                    </div>
+                                                    
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-left-2"
+                                                            id="permission-check-left-2" />
+                                                        <label class="form-check-label" for="permission-check-left-2"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-left-3">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Admission 3</span>
+                                                    </div>
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-left-3"
+                                                            id="permission-check-left-3" />
+                                                        <label class="form-check-label" for="permission-check-left-3"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-left-4">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Admission 4</span>
+                                                    </div>
+                                                    
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-left-4"
+                                                            id="permission-check-left-4" />
+                                                        <label class="form-check-label" for="permission-check-left-4"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-left-5">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Admission 5</span>
+                                                    </div>
+                                                    
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-left-5"
+                                                            id="permission-check-left-5" />
+                                                        <label class="form-check-label" for="permission-check-left-5"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-left-6">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Admission 6</span>
+                                                    </div>
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-left-6"
+                                                            id="permission-check-left-6" />
+                                                        <label class="form-check-label" for="permission-check-left-6"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li id="permission-li-left-7">
+                                                <div class="permission-list-btn">
+                                                    <div class="permission-li-btn">
+                                                        <span class="permission-list-icons icon-plus"></span>
+                                                        <span class="permission-list-text">New Admission 7</span>
+                                                    </div>
+                                                    
+                                                    <span>
+                                                        <input class="form-check-input input-root-checkbox" type="checkbox" value="" data-liid="#permission-li-left-7"
+                                                            id="permission-check-left-7" />
+                                                        <label class="form-check-label" for="permission-check-left-7"></label>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                          </ul>
+                                    </div>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row flex-row-reverse">
+                        <div class="col-12 col-md-12 box-input-row">
+                            <button type="button" class="btn btn-round btn-custom-light m-2">
+                                <span class="text-btn">save</span>
+                            </button>
+                            <button type="button" class="btn btn-round btn-border-blue m-2" >
+                                <span class="icon-Subtract"></span>
+                                <span class="text-btn">Save As Group Permission</span>
+                            </button>
+                            <button type="button" class="btn btn-round btn-border-m m-2" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <span class="text-btn">cancel</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Allert -->
+    <div class="modal fade modal-two" id="modulAlert" tabindex="-1" role="dialog" aria-labelledby="modulAlert"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content custom-content">
+                <div class="modal-header-custom">
+                    <h5 class="modal-title custom-title">
+                        <i class="icomoon icon-Us-ic"></i>
+                        <span class="text-title-modal">Alert personal</span>
+                        <hr class="custom-hr">
+                    </h5>
+                    <button type="button" class="close-custom" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <hr>
+                </div>
+                <div class="modal-body">
+                    Do you want to save this person in the list?
+                </div>
+
+                <div class="row flex-row-reverse">
+                    <div class="col-12-col-md-8 d-flex flex-row-reverse">
+                        <button type="button" class="btn btn-round btn-custom-light m-2" data-toggle="modal"
+                            data-target="#modulAlert">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <span class="text-btn">save</span>
+                        </button>
+                        <button type="button" class="btn btn-round btn-border-m m-2" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <span class="text-btn">cancel</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DataTables</title>
+
+  <!-- Bootstrap -->
+  <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <link href="../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="../build/css/mdb.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+   <!-- NProgress -->
+   <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- Datatables -->
+  
+
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+  <!-- bootstrap-daterangepicker -->
+	<link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="../build/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="nav_title navbar_logo" style="border: 0;">
+                    <a href="Person-List.html" class="site_title"><img src="../build/images/logo-1.png" class="img-fluid"
+                            alt="">
+                        <span><img src="../build/images/logo-text.svg" class="img-fluid" alt=""></span></a>
+                </div>
+                <div class="nav toggle">
+                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class="clearfix"></div>
+                <div class="nav_title navbar_logo" style="padding:8px;">
+                    <a href="Person-List.html" class="site_title icon-nav-menu">
+                        <img src="../build/images/UM-ico.svg" class="img-fluid" alt="">
+                        <span>User Management</span>
+                    </a>
+                </div>
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li>
+                                <a href="Person-List.html">
+                                    <i class="icomoon icon-PL-ic"></i>
+                                    <span class="text-icon">personal List</span>
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+                            </li>
+                            <li>
+                                <a href="User-List.html">
+                                    <i class="icomoon icon-Us-ic"></i>
+                                    <span class="text-icon">User List</span>
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="Role-Group-List.html">
+                                    <i class="icomoon icon-RG-ic"></i>
+                                    <span class="text-icon">
+                                        Role Role Group List
+                                    </span>
+
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+                                <!-- <ul class="nav child_menu">
+                <li><a href="general_elements.html">General Elements</a></li>
+                <li><a href="media_gallery.html">Media Gallery</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+              </ul> -->
+                            </li>
+                            <li>
+                                <a href="GroupPermission-List.html">
+                                    <i class="icomoon icon-Prm-ic"></i>
+                                    <span class="text-icon">Groupe permission List</span>
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="Permission-List.html">
+                                    <i class="icomoon icon-GPrm-ic"></i>
+                                    <span class="text-icon">Data Presentation</span>
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /sidebar menu -->
+                <div class="nav_title navbar_logo footer-logo" style="border: 0;">
+                    <a href="Person-List.html" class="site_title"><img src="../build/images/Exclude.png" class="img-fluid"
+                            alt="">
+                        <span><img src="../build/images/Beating-Company.png" class="img-fluid" alt=""></span></a>
+                </div>
+            </div>
+        </div>
+
+      <!-- page content -->
+      <div class="right_col" role="main">
+        <div class="right-after-box">
+
+          <div class="right-content-box">
+            <nav class="navbar navbar-expand-lg shadow-none">
+              <ul class="navbar-nav ml-3" id="header-menu">
+                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> User Management </a>
+                </li>
+                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> MPI </a> </li>
+                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> Admission </a> </li>
+                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> Setting </a> </li>
+                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> Appointment </a> </li>
+                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> Prescription </a> </li>
+              </ul>
+              <div class="flex-fill">
+                <div class="input-group-custom">
+                  <input type="text" name="mainSearchBox" placeholder="National Code | Patient Code | Mobile | Full Name"
+                  id="main-search" class="form-control-custom p-2" >
+                  <div class="input-group-append">
+                    <button class="search-btn-input main-btn-search" type="button">
+                      <span class="icon-Vector" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+  
+                <!-- <div class="input-group my-0">
+                  <label class="model-lable" for="main-search" class="d-none active"> </label>
+                  <input type="text" name="mainSearchBox" placeholder="National Code | Patient Code | Mobile | Full Name"
+                   id="main-search" class="form-control-custom p-2">
+                  <div class="input-group-append">
+                    <button class="search-btn-input"> 
+                      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div> -->
+              </div>
+            </nav>
+            <div class="clearfix"></div>
+
+            <h2 class="page-title-box">
+              <span class="page-title-text">Permission List</span>
+              <hr class="page-title-hr">
+            </h2>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 ">
+                <div class="data-table-panel">
+                  <div class="datatable_title">
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="row">
+                          <div class="col-12">
+                            <label class="model-lable" class="lable-search-dt" for="">Search in Persons</label>
+                          </div>
+                          <div class="col-12">
+                            <div class="input-group-custom">
+                              <input type="text" name="mainSearchBox" placeholder="National Code | Patient Code | Mobile | Full Name"
+                              onchange=""
+                              data-toggle="main-search-result" 
+                              id="main-search" class="form-control-custom data-table-search" >
+                              <div class="input-group-append">
+                                <button class="search-btn-input " type="button">
+                                  <span class="icon-Vector" aria-hidden="true"></span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="x_content">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="card-box table-responsive">
+  
+                          <table id="datatable-responsive" data-info="false" class="table dt-responsive nowrap data-table-custom"
+                            cellspacing="0" width="100%">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>code</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-0">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-0">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-1">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-1">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-2">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-2">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-3">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-3">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-4">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-4">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-5">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-5">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-7">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-7">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-8">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-8">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                    <div class="permission-list-td">
+                                        <div class="coutn-per-td">
+                                            <button class="btn-td-icon icon-drop-down" data-down="false" data-contentid="#permission-content-9">
+                                                <span class="icon-plus"></span>
+                                            </button>
+                                        </div>
+                                        <div class="name-per-td">New Admisson</div>
+                                        <div class="code-per-td">545456</div>
+                                        <div class="edit-per-td">
+                                            <button class="btn-td-icon btn-icon-edit">
+                                                <span class="icon-Vector-3"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="permission-drop-down" id="permission-content-9">
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        insert
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Orders
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Stop Drugs
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Change Admission
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Add New User
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="per-col-row row">
+                                                    <div class="per-text-row col-12 col-md-5">
+                                                        Payment
+                                                    </div>
+                                                    <div class="per-code-row col-12 col-md-5">
+                                                        12435
+                                                    </div>
+                                                    <div class="per-icon-row col-12 col-md-2">
+                                                        <button class="btn-td-icon btn-icon-edit">
+                                                            <span class="icon-Vector-3"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>                                
+                              </tr>
+  
+                              
+                            </tbody>
+                          </table>
+  
+  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+      <!-- /page content -->
+
+      <!-- footer content -->
+      <!-- <footer>
+        <div class="pull-right">
+          custom dashboard - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        </div>
+        <div class="clearfix"></div>
+      </footer> -->
+      <!-- /footer content -->
+    </div>
+  </div>
+
+
+
+
+
+  <!-- jQuery -->
+  <script src="../vendors/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- FastClick -->
+  <script src="../vendors/fastclick/lib/fastclick.js"></script>
+  <!-- bootstrap-daterangepicker -->
+	<script src="../vendors/moment/min/moment.min.js"></script>
+	<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <!-- NProgress -->
+  <script src="../vendors/nprogress/nprogress.js"></script>
+  
+  <!-- Datatables -->
+  <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+  <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+  <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+  <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+  <script src="../vendors/jszip/dist/jszip.min.js"></script>
+  <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+  <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+  <!-- Custom Theme Scripts -->
+  <script src="../build/js/custom.js"></script>
+
+</body>
+
+</html>
