@@ -425,8 +425,26 @@ $(document).ready(function () {
     });
     $("#show-role-group-box").on("click",function(){
         $(".new-role-box").fadeIn();
-    })
+    });
+    $("#main-search").focus(function() {
+        $("#main-search-result").fadeIn()
+        $(this).addClass("focus-in");
+    });
+    $("#main-search").blur(function() {
+        $("#main-search-result").fadeOut()
+        $(this).removeClass("focus-in");
+        $(this).attr("placeholder","National Code | Patient Code | Mobile | Full Name")
+    });
+
+    $('select:not(.normal)').each(function () {
+        $(this).select2({
+            dropdownParent: $(this).parent(),
+            width:"100%"
+        });
+    });
+    
 });
+  
 // /Panel toolbox
 
 // Toolpermission-li-btntip

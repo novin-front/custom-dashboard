@@ -17,10 +17,12 @@
   
   <!-- Font Awesome -->
   <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- select2 style -->
+  <link href="../vendors/select2/css/select2-bootstrap4.min.css" rel="stylesheet">
+  <link href="../vendors/select2/css/select2.min.css" rel="stylesheet">
    <!-- NProgress -->
    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- Datatables -->
-  
 
   <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
   <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
@@ -33,6 +35,7 @@
 
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.css" rel="stylesheet">
+  
 </head>
 
 <body class="nav-md">
@@ -137,13 +140,25 @@
               </ul>
               <div class="flex-fill">
                 <div class="input-group-custom">
-                  <input type="text" name="mainSearchBox" placeholder="National Code | Patient Code | Mobile | Full Name"
+                  <input type="text" name="mainSearchBox" 
+                  placeholder="National Code | Patient Code | Mobile | Full Name"
+                  onfocus="this.placeholder = ''"
                   id="main-search" class="form-control-custom p-2" >
                   <div class="input-group-append">
                     <button class="search-btn-input main-btn-search" type="button">
                       <span class="icon-Vector" aria-hidden="true"></span>
                     </button>
                   </div>
+                  <div id="main-search-result" class="select-box">
+                    <ul class="list-group list-group-auto-com">
+                        <li class="list-group-item"> National Code 0 | Patient Code 0 | Mobile 0 | Full Name 0 </li>
+                        <li class="list-group-item"> National Code 1 | Patient Code 1 | Mobile 1 | Full Name 1 </li>
+                        <li class="list-group-item"> National Code 2 | Patient Code 2 | Mobile 2 | Full Name 2 </li>
+                        <li class="list-group-item"> National Code 3 | Patient Code 3 | Mobile 3 | Full Name 3 </li>
+                        <li class="list-group-item"> National Code 4 | Patient Code 4 | Mobile 4 | Full Name 4 </li>
+                        <li class="list-group-item"> National Code 5 | Patient Code 5 | Mobile 5 | Full Name 5 </li>
+                    </ul>
+                </div>
                 </div>
   
                 <!-- <div class="input-group my-0">
@@ -176,7 +191,9 @@
                           </div>
                           <div class="col-12">
                             <div class="input-group-custom">
-                              <input type="text" name="mainSearchBox" placeholder="National Code | Patient Code | Mobile | Full Name"
+                              <input type="text" name="mainSearchBox" 
+                              placeholder="National Code | Patient Code | Mobile | Full Name"
+                              onfocus="this.placeholder = ''"
                               onchange=""
                               data-toggle="main-search-result" 
                               id="table-search" class="form-control-custom data-table-search" >
@@ -767,6 +784,8 @@
   <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
   <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
+  <!-- select2  -->
+  <script src="../vendors/select2/js/select2.min.js"></script>
   <!-- Custom Theme Scripts -->
   <script src="../build/js/custom.js"></script>
 
