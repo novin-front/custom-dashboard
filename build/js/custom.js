@@ -36,12 +36,43 @@ var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
     $BODY = $('body'),
     $MENU_TOGGLE = $('#menu_toggle'),
     $SIDEBAR_MENU = $('#sidebar-menu'),
+    $SIDEBAR_MENU_CONTENT = $('#sidebar-menu-content'),
     $SIDEBAR_FOOTER = $('.sidebar-footer'),
     $LEFT_COL = $('.left_col'),
     $RIGHT_COL = $('.right_col'),
     $NAV_MENU = $('.nav_menu'),
     $FOOTER = $('footer');
 
+
+function resizeLeftSideBar(){
+    console.log("resizeLeftSideBar")
+    if ($("body").hasClass('nav-md-t')) {
+        console.log("resizeLeftSideBar if")
+        $(".right_col").animate({'margin-left': '200'}, 300);
+       
+            $(".nav_title.navbar_logo .text-title-icon").delay(400).fadeIn();
+            $(".nav.side-menu .text-icon").delay(400).fadeIn();
+            $(".box-img-logo-m .text-title-icon").delay(400).fadeIn();
+            // setTimeout(() => {
+            //     $(".side-menu li").removeClass("sm-after")
+            // }, 400);
+            // $(".left_col").delay(400).animate({'width': '190'});
+        
+    } else {
+        console.log("resizeLeftSideBar else")
+
+            $(".right_col").animate({'margin-left': '85'}, 300);
+            $(".nav.side-menu .text-icon").delay(400).fadeOut();
+            $(".nav_title.navbar_logo .text-title-icon").delay(400).fadeOut();
+            $(".box-img-logo-m .text-title-icon").delay(400).fadeOut();
+            // setTimeout(() => {
+            //     $(".side-menu li").addClass("sm-after")
+            // }, 400);
+            // $(".left_col").delay(400).animate({'width': '50'},);
+        
+        
+    }
+}
 // Sidebar
 function init_sidebar() {
     // TODO: This is some kind of easy fix, maybe we can improve this
@@ -67,7 +98,8 @@ function init_sidebar() {
 
     $SIDEBAR_MENU.find('a').on('click', function (ev) {
         var $li = $(this).parent();
-
+        var $li_content = $SIDEBAR_MENU_CONTENT = $li;
+        console.log("$li_content ==>",$li_content);
         if ($li.is('.active')) {
             $li.removeClass('active active-sm');
             $('ul:first', $li).slideUp(function () {
@@ -95,17 +127,22 @@ function init_sidebar() {
 
     // toggle small or large menu
     $MENU_TOGGLE.on('click', function () {
-        if ($BODY.hasClass('nav-md')) {
-            $SIDEBAR_MENU.find('li.active ul').hide();
-            $SIDEBAR_MENU.find('li.active').addClass('active-sm').removeClass('active');
-        } else {
-            $SIDEBAR_MENU.find('li.active-sm ul').show();
-            $SIDEBAR_MENU.find('li.active-sm').addClass('active').removeClass('active-sm');
-        }
+        $BODY.toggleClass('nav-md-t nav-sm-t');
+        
+        resizeLeftSideBar();
+        
 
-        $BODY.toggleClass('nav-md nav-sm');
+        // if ($BODY.hasClass('nav-md')) {
+        //     $SIDEBAR_MENU.find('li.active ul').hide();
+        //     $SIDEBAR_MENU.find('li.active').addClass('active-sm').removeClass('active');
+        // } else {
+        //     $SIDEBAR_MENU.find('li.active-sm ul').show();
+        //     $SIDEBAR_MENU.find('li.active-sm').addClass('active').removeClass('active-sm');
+        // }
 
-        setContentHeight();
+        // $BODY.toggleClass('nav-md nav-sm');
+
+        // setContentHeight();
 
         $('.dataTable').each(function () { $(this).dataTable().fnDraw(); });
     });
@@ -139,13 +176,16 @@ function init_sidebar() {
 // check Size Window
 function checkSizeWindow(){
     let windowX = $( window ).width();
-    if(windowX < 992){
-        $("body").removeClass("nav-md");
-        $("body").addClass("nav-sm");
-    }else if(windowX > 768){
-        $("body").removeClass("nav-sm");
-        $("body").addClass("nav-md");
+    if(windowX > 992){
+        $("body").removeClass("nav-sm-t");
+        $("body").addClass("nav-md-t");
+    }else if(windowX < 991){
+        $("body").removeClass("nav-md-t");
+        $("body").addClass("nav-sm-t");
     }
+
+    resizeLeftSideBar()
+    
 }
 function toggleMenuMobile(event) {
     $(event).slideToggle();
@@ -356,6 +396,11 @@ $(document).ready(function () {
             $(parent).remove();
         }, 1000);
     });
+    $("body").delegate(".drop-down-btn","click",function(){
+        let siblin = $(this).siblings();
+        $(siblin).fadeToggle()
+        console.log(siblin)
+    });
 
     $("#add-role-option").on("click",function(){
         let selected =createErrorSelectOption(["#Branch","#Section","#RoleGroup","#Role"]);
@@ -435,14 +480,38 @@ $(document).ready(function () {
         $(this).removeClass("focus-in");
         $(this).attr("placeholder","National Code | Patient Code | Mobile | Full Name")
     });
-
-    $('select:not(.normal)').each(function () {
-        $(this).select2({
-            dropdownParent: $(this).parent(),
-            width:"100%"
+    if($(".select2_single").length){
+        $('select:not(.normal)').each(function () {
+            $(this).select2({
+                dropdownParent: $(this).parent(),
+                width:"100%"
+            });
         });
-    });
+    }
     
+
+    if($('#birthDate').length > 0){
+        $('#birthDate').datetimepicker({});
+    }
+    
+    $(".select-btn-sidebar").on("click",function(){
+        $(".drop-icon-sidebar").css({
+            transform : "rotate(270deg)" 
+        })
+        let siblin = $(this).siblings();
+        $(siblin).fadeToggle()
+    })
+    $(".select-btn-sidebar").blur(function(){
+       $(".dropdown-menu-r-sidebar").fadeOut();
+       $(".drop-icon-sidebar").css({
+            transform : "rotate(90deg)" 
+        })
+      })
+    $(".sidebar-right-btn").on("click",function(){
+        $(".sidebar-right").toggleClass("active");
+        $(this).find("i").toggleClass("fa-angle-left fa-angle-right");
+        $(this).toggleClass("open")
+    })
 });
   
 // /Panel toolbox

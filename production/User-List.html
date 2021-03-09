@@ -1,601 +1,1018 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>User List</title>
-
+  
+    <title>DataTables</title>
+  
     <!-- Bootstrap -->
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link href="../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="../build/css/mdb.min.css" rel="stylesheet">
-
+    
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+   
+    <!-- select2 style -->
+    <link href="../vendors/select2/css/select2-bootstrap4.min.css" rel="stylesheet">
+    <link href="../vendors/select2/css/select2.min.css" rel="stylesheet">
     
-    <!-- Datatables -->
-
-
+    
+    <!-- datetimepicker -->
+    <link rel="stylesheet" type="text/css" href="../vendors/datetimepicker-master/css/jquery.datetimepicker.css"/>
+     
+    <!-- NProgress -->
+     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    
+     <!-- Datatables -->
     <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-
+  
     <!-- bootstrap-daterangepicker -->
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+  
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.css" rel="stylesheet">
-</head>
+    
+  </head>
 
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
 
-            <div class="col-md-3 left_col">
-                <div class="left_col scroll-view">
-                    <div class="nav_title navbar_logo" style="border: 0;">
-                        <a href="Person-List.html" class="site_title"><img src="../build/images/logo-1.png" class="img-fluid"
-                                alt="">
-                            <span><img src="../build/images/logo-text.svg" class="img-fluid" alt=""></span></a>
+          <div class="col-md-3 left_col pt-4 pl-2">
+            <div class="left_col scroll-view">
+                <div class="navbar_logo box-img-logo-m" >
+                    <a href="Person-List.html" class="site_title"><img src="../build/images/logo-1.png" class="img-fluid"
+                            alt="">
+                        <span class="text-title-icon"><img src="../build/images/logo-text.svg" class="img-fluid" alt=""></span></a>
+                </div>
+                <div class="nav-btn-wrapper">
+                    <button id="menu_toggle">
+                      <span class="menu_toggle_btn"></span>
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="navbar_logo box-img-logo-m" style="padding: 0px 20px 0px 5px;">
+                    <a href="Person-List.html" class="site_title icon-nav-menu">
+                        <img src="../build/images/UM-ico.svg" class="img-fluid" alt="">
+                        <span class="text-title-icon">User <br> Management</span>
+                    </a>
+                </div>
+    
+                <br />
+    
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li class="active">
+                                <a href="Person-List.html">
+                                    <i class="icomoon icon-PL-ic"></i>
+                                    <span class="text-icon">personal List</span>
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+                            </li>
+                            <li>
+                                <a href="User-List.html">
+                                    <i class="icomoon icon-Us-ic"></i>
+                                    <span class="text-icon">User List</span>
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+    
+                            </li>
+                            <li>
+                                <a href="Role-Group-List.html">
+                                    <i class="icomoon icon-RG-ic"></i>
+                                    <span class="text-icon">
+                                        Role Role Group List
+                                    </span>
+    
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+                                <!-- <ul class="nav child_menu">
+                <li><a href="general_elements.html">General Elements</a></li>
+                <li><a href="media_gallery.html">Media Gallery</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+              </ul> -->
+                            </li>
+                            <li>
+                                <a href="GroupPermission-List.html">
+                                    <i class="icomoon icon-Prm-ic"></i>
+                                    <span class="text-icon">Groupe permission List</span>
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Permission-List.html">
+                                    <i class="icomoon icon-GPrm-ic"></i>
+                                    <span class="text-icon">Data Presentation</span>
+                                    <!-- <span class="fa fa-chevron-down"></span> -->
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="nav toggle">
-                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="nav_title navbar_logo" style="padding:8px;">
-                        <a href="Person-List.html" class="site_title icon-nav-menu">
-                            <img src="../build/images/UM-ico.svg" class="img-fluid" alt="">
-                            <span>User Management</span>
-                        </a>
-                    </div>
-
-                    <br />
-
-                    <!-- sidebar menu -->
-                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                        <div class="menu_section">
-                            <ul class="nav side-menu">
-                                <li>
-                                    <a href="Person-List.html">
-                                        <i class="icomoon icon-PL-ic"></i>
-                                        <span class="text-icon">personal List</span>
-                                        <!-- <span class="fa fa-chevron-down"></span> -->
-                                    </a>
-                                </li>
-                                <li class="active">
-                                    <a href="User-List.html">
-                                        <i class="icomoon icon-Us-ic"></i>
-                                        <span class="text-icon">User List</span>
-                                        <!-- <span class="fa fa-chevron-down"></span> -->
-                                    </a>
-
-                                </li>
-                                <li>
-                                    <a href="Role-Group-List.html">
-                                        <i class="icomoon icon-RG-ic"></i>
-                                        <span class="text-icon">
-                                            Role Role Group List
-                                        </span>
-
-                                        <!-- <span class="fa fa-chevron-down"></span> -->
-                                    </a>
-                                    <!-- <ul class="nav child_menu">
-                    <li><a href="general_elements.html">General Elements</a></li>
-                    <li><a href="media_gallery.html">Media Gallery</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
-                  </ul> -->
-                                </li>
-                                <li>
-                                    <a href="GroupPermission-List.html">
-                                        <i class="icomoon icon-Prm-ic"></i>
-                                        <span class="text-icon">Groupe permission List</span>
-                                        <!-- <span class="fa fa-chevron-down"></span> -->
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="Permission-List.html">
-                                        <i class="icomoon icon-GPrm-ic"></i>
-                                        <span class="text-icon">Data Presentation</span>
-                                        <!-- <span class="fa fa-chevron-down"></span> -->
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <!-- /sidebar menu -->
-                    <div class="nav_title navbar_logo footer-logo" style="border: 0;">
-                        <a href="Person-List.html" class="site_title"><img src="../build/images/Exclude.png" class="img-fluid"
-                                alt="">
-                            <span><img src="../build/images/Beating-Company.png" class="img-fluid" alt=""></span></a>
-                    </div>
+    
+                </div>
+    
+                <!-- /sidebar menu -->
+                <div class="footer-logo box-img-logo-m" >
+                    <a href="Person-List.html" class="site_title pl-3"><img src="../build/images/Exclude.png" class="img-fluid"
+                            alt="">
+                        <span class="text-title-icon"><img src="../build/images/Beating-Company.png" class="img-fluid" alt=""></span></a>
                 </div>
             </div>
+          </div>
+
 
             <!-- page content -->
             <div class="right_col" role="main">
+                
+              <ul id="sidebar-menu-content" class="side-menu-content">
+                <li class=""><a href="#"></a></li>
+                <li class="active"><a href="#"></a></li>
+                <li><a href="#"> </a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+
                 <div class="right-after-box">
 
                     <div class="right-content-box">
+
+                      <div class="content-wrapper">
                         <nav class="navbar navbar-expand-lg shadow-none">
-                            <ul class="navbar-nav ml-3" id="header-menu">
-                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> User
-                                        Management </a>
-                                </li>
-                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> MPI
-                                    </a> </li>
-                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light">
-                                        Admission </a> </li>
-                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light">
-                                        Setting </a> </li>
-                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light">
-                                        Appointment </a> </li>
-                                <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light">
-                                        Prescription </a> </li>
-                            </ul>
-                            <div class="flex-fill">
-                                <div class="input-group-custom">
-                                    <input type="text" name="mainSearchBox"
-                                        placeholder="National Code | Patient Code | Mobile | Full Name" id="main-search"
-                                        class="form-control-custom p-2">
-                                    <div class="input-group-append">
-                                        <button class="search-btn-input main-btn-search" type="button">
-                                            <span class="icon-Vector" aria-hidden="true"></span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="input-group my-0">
-                  <label class="model-lable" for="main-search" class="d-none active"> </label>
-                  <input type="text" name="mainSearchBox" placeholder="National Code | Patient Code | Mobile | Full Name"
-                   id="main-search" class="form-control-custom p-2">
-                  <div class="input-group-append">
-                    <button class="search-btn-input"> 
-                      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    </button>
-                  </div>
-                </div> -->
+                          <ul class="navbar-nav ml-3" id="header-menu">
+                            <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> User Management </a>
+                            </li>
+                            <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> MPI </a> </li>
+                            <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> Admission </a> </li>
+                            <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> Setting </a> </li>
+                            <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> Appointment </a> </li>
+                            <li class="nav-item"> <a href="#" class="nav-link py-0 waves-effect waves-light"> Prescription </a> </li>
+                          </ul>
+                          <div class="flex-fill">
+                            <div class="input-group-custom">
+                              <input type="text" name="mainSearchBox" 
+                              placeholder="National Code | Patient Code | Mobile | Full Name"
+                              onfocus="this.placeholder = ''"
+                              id="main-search" class="form-control-custom p-2" >
+                              <div class="input-group-append">
+                                <button class="search-btn-input main-btn-search" type="button">
+                                  <span class="icon-Vector" aria-hidden="true"></span>
+                                </button>
+                              </div>
+                              <div id="main-search-result" class="select-box">
+                                <ul class="list-group list-group-auto-com">
+                                    <li class="list-group-item"> National Code 0 | Patient Code 0 | Mobile 0 | Full Name 0 </li>
+                                    <li class="list-group-item"> National Code 1 | Patient Code 1 | Mobile 1 | Full Name 1 </li>
+                                    <li class="list-group-item"> National Code 2 | Patient Code 2 | Mobile 2 | Full Name 2 </li>
+                                    <li class="list-group-item"> National Code 3 | Patient Code 3 | Mobile 3 | Full Name 3 </li>
+                                    <li class="list-group-item"> National Code 4 | Patient Code 4 | Mobile 4 | Full Name 4 </li>
+                                    <li class="list-group-item"> National Code 5 | Patient Code 5 | Mobile 5 | Full Name 5 </li>
+                                </ul>
                             </div>
+                            </div>
+              
+                            <!-- <div class="input-group my-0">
+                              <label class="model-lable" for="main-search" class="d-none active"> </label>
+                              <input type="text" name="mainSearchBox" placeholder="National Code | Patient Code | Mobile | Full Name"
+                               id="main-search" class="form-control-custom p-2">
+                              <div class="input-group-append">
+                                <button class="search-btn-input"> 
+                                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                              </div>
+                            </div> -->
+                          </div>
                         </nav>
-                        <div class="clearfix"></div>
+                      
+                      <div class="clearfix"></div>
 
-                        <h2 class="page-title-box">
-                            <span class="page-title-text">User List</span>
-                            <hr class="page-title-hr">
-                        </h2>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 ">
-                                <div class="data-table-panel">
-                                    <div class="datatable_title">
-                                        <div class="row">
-                                            <div class="col-12 col-md-8 col-xl-9">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <label class="model-lable" class="lable-search-dt" for="">Search
-                                                            in Persons</label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="input-group-custom">
-                                                            <input type="text" name="mainSearchBox"
-                                                                placeholder="National Code | Patient Code | Mobile | Full Name"
-                                                                onchange="" data-toggle="main-search-result"
-                                                                id="main-search"
-                                                                class="form-control-custom data-table-search">
-                                                            <div class="input-group-append">
-                                                                <button class="search-btn-input " type="button">
-                                                                    <span class="icon-Vector" aria-hidden="true"></span>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                      <h2 class="page-title-box">
+                          <span class="page-title-text">User List</span>
+                          <hr class="page-title-hr">
+                      </h2>
+
+                      <div class="row">
+                          <div class="col-md-12 col-sm-12 ">
+
+                              <div class="data-table-panel">
+
+                                  <div class="datatable_title">
+                                      <div class="row">
+                                        <div class="col-12 col-xl-10 col-md-9">
+                                          <div class="row">
+                                            <div class="col-12">
+                                              <label class="model-lable" class="lable-search-dt" for="">Search in Persons</label>
+                                            </div>
+                                            <div class="col-12">
+                                              <div class="input-group-custom">
+                                                <input type="text" name="mainSearchBox" 
+                                                placeholder="National Code | Patient Code | Mobile | Full Name"
+                                                onfocus="this.placeholder = ''"
+                                                onchange=""
+                                                data-toggle="main-search-result" 
+                                                id="table-search" class="form-control-custom data-table-search" >
+                                                <div class="input-group-append">
+                                                  <button class="search-btn-input " type="button">
+                                                    <span class="icon-Vector" aria-hidden="true"></span>
+                                                  </button>
                                                 </div>
+                                              </div>
                                             </div>
-                                            <div class="col-12 col-md-4 col-xl-3 d-flex align-items-end ">
-                                                <button type="button" class="btn btn-round btn-custom-light m-0 w-100"
-                                                    id="add-user-personal" data-toggle="modal"
-                                                    data-target="#AddPersonal">
-                                                    <i class="icon-Vector-5"></i>
-                                                    <span class="text-btn">Add User</span>
-                                                </button>
-                                            </div>
+                                          </div>
                                         </div>
-                                    </div>
-                                    <div class="x_content">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="card-box table-responsive">
-
-                                                    <table id="datatable-responsive" data-info="false"
-                                                        class="table dt-responsive nowrap data-table-custom"
-                                                        cellspacing="0" width="100%">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>User name</th>
-                                                                <th>Full Name</th>
-                                                                <th>Roll</th>
-                                                                <th>Phone Number</th>
-                                                                <th>Time To create</th>
-                                                                <th>Is Limited by IP</th>
-                                                                <th></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nixon</td>
-                                                                <td>System Architect</td>
-                                                                <td>Edinburgh</td>
-                                                                <td>09192018492</td>
-                                                                <td>2011/04/01</td>
-                                                                <td>192.168.0.1</td>
-                                                                <td>
-                                                                    <div class="dropdown dropdown-dt">
-                                                                        <button class="drop-down-btn" type="button"
-                                                                            id="dropdownMenuButton"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i class="fa fa-ellipsis-v"></i>
-                                                                        </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuButton">
-                                                                            <a class="dropdown-item" href="#">Action</a>
-                                                                            <a class="dropdown-item" href="#">Another
-                                                                                action</a>
-                                                                            <a class="dropdown-item" href="#">Something
-                                                                                else here</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-
-
-
-                                                        </tbody>
-                                                    </table>
-
-
-                                                </div>
-                                            </div>
+                                        <div class="col-12 col-md-3 col-xl-2 d-flex align-items-end ">
+                                          <button type="button" class="btn btn-custom-light m-0 w-100" id="add-user-personal" data-toggle="modal" data-target="#AddPersonal">
+                                            <i class="icon-Add-icon-1"></i>
+                                            <span class="text-btn">Add User</span>
+                                          </button>
                                         </div>
+                                      </div>
                                     </div>
-                                </div>
-                            </div>
+
+                                  <div class="x_content">
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                              <div class="card-box table-responsive">
+
+                                                  <table id="datatable-responsive" data-info="false"
+                                                      class="table dt-responsive nowrap data-table-custom"
+                                                      cellspacing="0" width="100%">
+                                                      <thead>
+                                                          <tr>
+                                                              <th>#</th>
+                                                              <th>User name</th>
+                                                              <th>Full Name</th>
+                                                              <th>Roll</th>
+                                                              <th>Phone Number</th>
+                                                              <th>Time To create</th>
+                                                              <th>Is Limited by IP</th>
+                                                              <th></th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>1</td>
+                                                              <td>Nixon</td>
+                                                              <td>System Architect</td>
+                                                              <td>Edinburgh</td>
+                                                              <td>09192018492</td>
+                                                              <td>2011/04/01</td>
+                                                              <td>192.168.0.1</td>
+                                                              <td>
+                                                                  <div class="operations-btn-wrpper">
+                                                                      <button class="drop-down-btn">
+                                                                        <span class="icon-drop-down-c"></span>
+                                                                      </button>
+                                                                      <div class="operations-body-list">
+                                                                        <ul class="operations-list">
+                                                                          <li>
+                                                                            <a class="operations-btn permission-op" href="#">
+                                                                              <i class="icomoon icon-Prm-ic"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn edit-op" href="#">
+                                                                              <i class="icon-Vector-3"></i>
+                                                                            </a>
+                                                                          </li>
+                                                                          <li>
+                                                                            <a class="operations-btn remove-op" href="#">
+                                                                              <span>×</span>
+                                                                            </a>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                    </div>
+                                                              </td>
+                                                          </tr>
+
+                                                          
+
+
+
+                                                      </tbody>
+                                                  </table>
+
+
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+
+                      <div class="sidebar-right">
+                        <div class="icon-box">
+                          <span class="icon-power_icon"></span>
                         </div>
+                        <div class="profile-box">
+                          <div class="box-icons-box">
+                            <span class="icon-Vector-4"></span>
+                          </div>
+                        </div>
+                        <div class="dropdown text-center">
+                          <button class="select-btn-sidebar" >
+                            <span class="drop-icon-sidebar">&#x203A;</span>
+                            ICU
+                          </button>
+                          <div class="dropdown-menu-r-sidebar" >
+                            <a class="dropdown-item dropdown-item-sidebar" type="button">ICU  | Resident Doctor</a>
+                            <a class="dropdown-item dropdown-item-sidebar" type="button">Radiology | Resident Doctor</a>
+                            <a class="dropdown-item dropdown-item-sidebar" type="button">Core HIS | Resident Doctor</a>
+                            <a class="dropdown-item dropdown-item-sidebar" type="button">EMS | Resident Doctor</a>
+                          </div>
+                        </div>
+                        <button class="sidebar-right-btn">
+                          <i class="fa fa-angle-left"></i>
+                        </button>
+                        <span class="line-blue-right-sidebar"></span>
+                        <div class="right-sidebar-footer">
+                          <button class="right-sidebar-but">
+                            <span class="icon-Vector-6"></span>
+                          </button>
+                        </div>
+                      </div>
+                        
                     </div>
 
                 </div>
@@ -613,6 +1030,8 @@
             <!-- /footer content -->
         </div>
     </div>
+
+
 
 
     <!-- Modal add Personal User -->
@@ -640,7 +1059,7 @@
                             <div class="input-group-custom">
                                 <input type="text" name="mainSearchBox"
                                     placeholder="National Code | Patient Code | Mobile | Full Name" onchange=""
-                                    data-toggle="main-search-result" id="main-search"
+                                    data-toggle="main-search-result" 
                                     class="form-control-custom data-table-search">
                                 <div class="input-group-append">
                                     <button class="search-btn-input " type="button">
@@ -893,7 +1312,7 @@
                                     <div class="input-group-custom">
                                         <input type="text" name="mainSearchBox"
                                             placeholder="Search in Page / Permission" onchange=""
-                                            data-toggle="main-search-result" id="main-search"
+                                            data-toggle="main-search-result" 
                                             class="form-control-custom data-table-search">
                                         <div class="input-group-append">
                                             <button class="search-btn-input " type="button">
@@ -1087,7 +1506,7 @@
                                     <div class="input-group-custom">
                                         <input type="text" name="mainSearchBox"
                                             placeholder="Search in Page / Permission" onchange=""
-                                            data-toggle="main-search-result" id="main-search"
+                                            data-toggle="main-search-result" id="per-search-main-search"
                                             class="form-control-custom data-table-search">
                                         <div class="input-group-append">
                                             <button class="search-btn-input " type="button">
@@ -1312,37 +1731,42 @@
 
 
 
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="../vendors/moment/min/moment.min.js"></script>
+<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- Datatables -->
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="../vendors/jszip/dist/jszip.min.js"></script>
+<script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
-    <!-- Datatables -->
-    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- select2  -->
+<script src="../vendors/select2/js/select2.min.js"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.js"></script>
+<!-- datetimepicker -->
+<script src="../vendors/datetimepicker-master/js/jquery.datetimepicker.full.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.js"></script>
 
 </body>
 
